@@ -150,8 +150,10 @@ June 2026
 \end{titlepage}
 '''
 
+# Abstract and contents each get their own page; the contents lists sections
+# and subsections. \twocolumn then starts the body on a fresh page.
 FRONTMATTER = ('\\onecolumn\n\\section*{Abstract}\n' + abstract_tex
-               + '\n\\vspace{1.2em}\n{\\small\\tableofcontents}\n\\twocolumn\n')
+               + '\n\\newpage\n{\\small\\tableofcontents}\n\\twocolumn\n')
 
 master = PREAMBLE + TITLEPAGE + FRONTMATTER + body + '\n\\end{document}\n'
 (ROOT / 'Thesis.tex').write_text(master)
