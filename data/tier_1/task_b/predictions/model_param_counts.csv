@@ -1,0 +1,9 @@
+task,model,architecture,parameters,note
+A,Autoencoder (pathways),466-256-64-32-64-256-466,276594,unsupervised; +33-param LR head
+A,Autoencoder (species),572-256-64-32-64-256-572,330972,unsupervised; +33-param LR head
+B v0,Linear (abundance),1595-1,1596,logistic baseline
+B v0,MLP (abundance),1595-256-64-1,425089,dropout 0.3
+B v1,SeqMLP (k-mer),400-256-64-1,119169,dropout 0.3
+B v1,SeqMLP (ESM-2 35M),480-256-64-1,139649,dropout 0.3
+B v1,SeqMLP (ESM-2 650M),1280-256-64-1,344449,dropout 0.3
+B v1,Fusion (logistic),2-1,3,2 weights + bias; fit on val

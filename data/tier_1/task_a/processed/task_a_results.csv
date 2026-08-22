@@ -1,0 +1,9 @@
+method,val_auroc,val_auprc,val_f1,test_auroc,test_auprc,test_f1
+ElasticNet (species),0.777,0.397,0.505,0.857,0.694,0.662
+ElasticNet (pathways),0.903,0.581,0.608,0.94,0.866,0.733
+PCA32 + LR (species),0.849,0.605,0.642,0.612,0.507,0.49
+PCA32 + LR (pathways),0.882,0.71,0.617,0.885,0.738,0.654
+AE32 + LR (species),0.699,0.428,0.462,0.495,0.407,0.349
+AE32 + LR (pathways),0.839,0.455,0.563,0.809,0.655,0.581
+AE32 + LR (species),0.699,0.428,0.462,0.495,0.407,0.349
+AE32 + LR (pathways),0.839,0.455,0.563,0.809,0.655,0.581

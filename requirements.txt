@@ -1,0 +1,20 @@
+# Core scientific stack
+numpy
+pandas
+pyarrow
+scipy
+scikit-learn
+
+# Deep learning
+torch
+transformers
+
+# Plotting
+matplotlib
+seaborn
+umap-learn
+
+# Notebooks
+jupyter
+ipykernel
+nbconvert

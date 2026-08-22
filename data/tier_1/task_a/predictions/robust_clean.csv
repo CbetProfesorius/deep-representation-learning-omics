@@ -1,0 +1,6 @@
+model,clean_test_AUROC
+ElasticNet,0.963
+PCA32 + LR,0.951
+Autoencoder32 + LR,0.964
+Denoising AE32 + LR,0.951
+VAE32 + LR,0.965

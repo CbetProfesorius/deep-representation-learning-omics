@@ -1,0 +1,4 @@
+bucket,n,pos,base_rate,MW_unsup_AUPRC,MW_sup_AUPRC,MLP_AUPRC
+characterized,125750,3302,0.0263,0.0963,0.0791,0.1672
+weak,67135,703,0.0105,0.0239,0.0229,0.059
+novel,24308,50,0.0021,0.0034,0.0028,0.0052

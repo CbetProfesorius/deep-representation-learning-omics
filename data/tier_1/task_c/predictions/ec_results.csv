@@ -1,0 +1,5 @@
+model,Franzosa_CV_AUROC,HMP2_to_Franzosa_AUROC,HMP2_to_Franzosa_AUPRC,Franzosa_to_HMP2_AUROC,mean_transfer_AUROC
+ElasticNet,0.905,0.704,0.873,0.69,0.697
+PCA32 + LR,0.901,0.704,0.883,0.667,0.686
+Autoencoder32 + LR,0.908,0.738,0.898,0.653,0.696
+VAE32 + LR,0.867,0.687,0.865,0.629,0.658

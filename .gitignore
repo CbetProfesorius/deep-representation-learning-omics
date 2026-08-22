@@ -1,0 +1,49 @@
+# ---------------------------------------------------------------
+# Large data and intermediates
+#
+# Raw inputs, ESM-2 embedding matrices, model weights and per-family
+# prediction matrices are not versioned: the protein-family inputs alone
+# exceed 2.5 GB. Every source is public and documented in the README, so
+# the pipeline can be re-run from scratch. Small result tables (CSV) and
+# all generated figures are versioned.
+# ---------------------------------------------------------------
+data/tier_1/task_a/hmp2_metadata.csv
+data/tier_1/task_b/raw/
+data/tier_1/task_c/raw/
+*.parquet
+*.pt
+*.npy
+*.tsv.gz
+
+# ---------------------------------------------------------------
+# Published third-party articles and their supplements (copyright).
+# Cited in the README and the manuscript reference list instead.
+# ---------------------------------------------------------------
+s41586-022-04648-7.pdf
+41586_2022_4648_MOESM*
+
+# ---------------------------------------------------------------
+# Generated LaTeX artefacts. thesis.pdf and Supplementary_Material.pdf
+# are versioned; the intermediate .tex and log files are rebuilt by
+# build_pdf.py and are not.
+# ---------------------------------------------------------------
+*.tex
+*.aux
+*.log
+*.out
+*.toc
+*.fls
+*.fdb_latexmk
+*.synctex.gz
+
+# ---------------------------------------------------------------
+# Environment, caches, editor and OS files
+# ---------------------------------------------------------------
+__pycache__/
+*.py[cod]
+.ipynb_checkpoints/
+.venv/
+venv/
+.env
+.DS_Store
+.vscode/

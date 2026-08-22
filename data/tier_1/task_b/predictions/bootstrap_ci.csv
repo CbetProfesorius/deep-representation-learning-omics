@@ -1,0 +1,6 @@
+method,auprc,auprc_lo,auprc_hi,auroc,auroc_lo,auroc_hi
+MetaWIBELE unsup,0.0755,0.0697,0.0821,0.7296,0.7202,0.7389
+MetaWIBELE sup,0.064,0.059,0.0699,0.7029,0.6944,0.7117
+Abundance MLP,0.1424,0.1334,0.1524,0.8315,0.8252,0.838
+Sequence ESM-2 650M,0.2706,0.2569,0.286,0.9097,0.9048,0.9142
+Fusion (abund+ESM-2),0.3682,0.3532,0.3849,0.9274,0.9232,0.9315
