@@ -1,5 +1,5 @@
 #!/usr/bin/env python
-"""Task C - cross-cohort generalization (the central test of the thesis claim).
+"""Cross-cohort generalization (the central test of the thesis claim).
 
 Train an IBD (CD/UC) vs non-IBD-control classifier on the HMP2/IBDMDB cohort
 (MetaPhlAn species relative abundances) and evaluate it, with no refitting, on
@@ -15,7 +15,7 @@ transfers across cohorts better than the classical linear pipelines:
 
 For each model we report in-cohort performance (participant-grouped 5-fold CV on
 HMP2) and cross-cohort performance (train on all HMP2, test on Franzosa), and the
-drop between them. Outputs predictions/taskc_results.csv and figures fig13/fig14.
+drop between them. Outputs predictions/crosscohort_results.csv and figures fig13/fig14.
 """
 from pathlib import Path
 import numpy as np, pandas as pd, warnings, torch, torch.nn as nn
@@ -28,7 +28,7 @@ from sklearn.metrics import roc_auc_score, average_precision_score, f1_score, ro
 import matplotlib; matplotlib.use('Agg'); import matplotlib.pyplot as plt
 
 HERE = Path(__file__).parent
-TA = HERE.parent / 'task_a'
+TA = HERE.parent / 'sample_classification'
 PRED = HERE / 'predictions'; FIG = HERE / 'figures'
 PRED.mkdir(exist_ok=True); FIG.mkdir(exist_ok=True)
 rng = np.random.default_rng(0); torch.manual_seed(0); np.random.seed(0)
@@ -125,7 +125,7 @@ leak = pd.DataFrame([
     {'evaluation': 'HMP2 naive sample-level 5-fold CV (LEAKY)', 'AUROC': round(naive_m, 3), 'sd': round(naive_s, 3)},
     {'evaluation': 'HMP2 participant-grouped 5-fold CV (correct)', 'AUROC': round(grp_m, 3), 'sd': round(grp_s, 3)},
 ])
-leak.to_csv(PRED / 'taskc_leakage.csv', index=False)
+leak.to_csv(PRED / 'leakage.csv', index=False)
 print('\n[leakage trap, ElasticNet on HMP2 species]\n', leak.to_string(index=False), flush=True)
 
 # ---------- (b) bidirectional cross-cohort transfer + clean within-cohort reference ----------
@@ -153,7 +153,7 @@ for name, kind in MODELS.items():
 
 res = pd.DataFrame(rows)
 h2f_lo = res.pop('_h2f_lo').values; h2f_hi = res.pop('_h2f_hi').values
-res.to_csv(PRED / 'taskc_results.csv', index=False)
+res.to_csv(PRED / 'crosscohort_results.csv', index=False)
 print('\n', res.to_string(index=False), flush=True)
 
 # ---------- fig13: bidirectional cross-cohort AUROC ----------

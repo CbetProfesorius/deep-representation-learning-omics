@@ -13,7 +13,7 @@ import numpy as np
 from PIL import Image
 
 TARGETS = [
-    "data/sample_classification/task_a_results.png",
+    "data/sample_classification/classification_results.png",
     "data/protein_prioritization/figures/fig1_pr_curves.png",
     "data/protein_prioritization/figures/fig3_auprc_bars.png",
     "data/protein_prioritization/figures/fig4_stratified.png",

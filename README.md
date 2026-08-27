@@ -58,13 +58,13 @@ data/
 │   ├── 06_seeds.py            five-split multi-seed robustness
 │   ├── bootstrap_ci.py        bootstrap confidence intervals on the fixed test set
 │   ├── 07_complementarity.py  abundance vs sequence score independence
-│   ├── interpret_taskb.py     Pfam / localization / MaAsLin2 enrichment of top families
+│   ├── interpret.py     Pfam / localization / MaAsLin2 enrichment of top families
 │   ├── model_cards.py         parameter counts (Supplementary Table S1)
 │   ├── run_esm_*.sh           Slurm submission scripts
 │   ├── figures/
 │   └── predictions/           result tables (CSV)
 └── cross_cohort/               Section 6: cross-cohort generalisation
-    ├── taskc_crosscohort.py   HMP2 <-> PRISM transfer on 197 shared species
+    ├── crosscohort.py   HMP2 <-> PRISM transfer on 197 shared species
     ├── ec_crosscohort.py      same on 2,052 shared EC enzymes
     ├── feature_importance.py  per-species Cohen's d, cross-cohort agreement
     ├── ordination.py          pooled PCA: batch effect vs diagnosis signal
@@ -91,7 +91,7 @@ Excluded from version control: `protein_prioritization/raw/`, all `.parquet` and
 pip install -r requirements.txt
 ```
 
-Then run, in order: `sample_classification/explore.ipynb` and `robust_vae.py`; `protein_prioritization/01_data.ipynb` → `02_abundance_only.ipynb` → `03_sequence.ipynb`; `cross_cohort/taskc_crosscohort.py` and `ec_crosscohort.py`.
+Then run, in order: `sample_classification/explore.ipynb` and `robust_vae.py`; `protein_prioritization/01_data.ipynb` → `02_abundance_only.ipynb` → `03_sequence.ipynb`; `cross_cohort/crosscohort.py` and `ec_crosscohort.py`.
 
 ESM-2 embeddings for all 1.45 M families were computed on the CSUC Pirineus3 cluster (Slurm, NVIDIA H100) via `esm_embed.py`: 1 h 18 min for the 35M model, 4 h 32 min for the 650M model, producing a 7.4 GB matrix. Everything else runs on a laptop with the Apple-Silicon MPS backend.
 

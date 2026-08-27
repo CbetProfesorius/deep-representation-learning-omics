@@ -106,5 +106,5 @@ axes[1].barh(range(len(topf)), -np.log10(topf['fdr'] + 1e-300), color='#2e7d32',
 axes[1].set_yticks(range(len(topf))); axes[1].set_yticklabels(lab, fontsize=8)
 axes[1].set_xlabel('-log10 FDR (enrichment in top-1000)')
 axes[1].set_title('Enriched Pfam domains')
-plt.tight_layout(); plt.savefig(FIG / 'fig19_interpret_taskb.png', dpi=150); plt.close()
-print('wrote figures/fig19_interpret_taskb.png', flush=True)
+plt.tight_layout(); plt.savefig(FIG / 'fig19_interpret.png', dpi=150); plt.close()
+print('wrote figures/fig19_interpret.png', flush=True)

@@ -1,5 +1,5 @@
 #!/usr/bin/env python
-"""High-dimensional cross-cohort transfer (companion to the species Task C).
+"""High-dimensional cross-cohort transfer (companion to the species-level transfer).
 
 Same train-on-HMP2 / test-on-Franzosa IBD-vs-control protocol, but on the
 ~2,000-dimensional Enzyme-Commission (EC) functional profile instead of 197
@@ -21,7 +21,7 @@ from sklearn.model_selection import StratifiedKFold
 from sklearn.metrics import roc_auc_score, average_precision_score
 import matplotlib; matplotlib.use('Agg'); import matplotlib.pyplot as plt
 
-HERE = Path(__file__).parent; TA = HERE.parent / 'task_a'
+HERE = Path(__file__).parent; TA = HERE.parent / 'sample_classification'
 PRED = HERE / 'predictions'; FIG = HERE / 'figures'; PRED.mkdir(exist_ok=True); FIG.mkdir(exist_ok=True)
 torch.manual_seed(0); np.random.seed(0)
 device = 'mps' if torch.backends.mps.is_available() else 'cpu'

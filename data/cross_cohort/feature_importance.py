@@ -17,7 +17,7 @@ from sklearn.preprocessing import StandardScaler
 from scipy.stats import pearsonr
 import matplotlib; matplotlib.use('Agg'); import matplotlib.pyplot as plt
 
-HERE = Path(__file__).parent; TA = HERE.parent / 'task_a'
+HERE = Path(__file__).parent; TA = HERE.parent / 'sample_classification'
 PRED = HERE / 'predictions'; FIG = HERE / 'figures'; PRED.mkdir(exist_ok=True)
 
 hmp = pd.read_parquet(TA / 'processed' / 'X_tax_species.parquet')

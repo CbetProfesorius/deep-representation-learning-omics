@@ -18,7 +18,7 @@ from sklearn.linear_model import LogisticRegression
 from sklearn.model_selection import cross_val_score
 import matplotlib; matplotlib.use('Agg'); import matplotlib.pyplot as plt
 
-HERE = Path(__file__).parent; TA = HERE.parent / 'task_a'; PRED = HERE / 'predictions'; FIG = HERE / 'figures'
+HERE = Path(__file__).parent; TA = HERE.parent / 'sample_classification'; PRED = HERE / 'predictions'; FIG = HERE / 'figures'
 hmp = pd.read_parquet(TA / 'processed' / 'X_tax_species.parquet')
 lab = pd.read_parquet(TA / 'processed' / 'labels.parquet').set_index('sample_id').loc[hmp.index]
 y_h = lab['diagnosis'].isin(['CD', 'UC']).astype(int).values
