@@ -13,19 +13,19 @@ import numpy as np
 from PIL import Image
 
 TARGETS = [
-    "data/tier_1/task_a/task_a_results.png",
-    "data/tier_1/task_b/figures/fig1_pr_curves.png",
-    "data/tier_1/task_b/figures/fig3_auprc_bars.png",
-    "data/tier_1/task_b/figures/fig4_stratified.png",
-    "data/tier_1/task_b/figures/fig6_v1_auprc.png",
-    "data/tier_1/task_b/figures/fig7_v1_pr.png",
-    "data/tier_1/task_b/figures/fig8_architecture.png",
-    "data/tier_1/task_b/figures/fig10_stratified_seq.png",
-    "data/tier_1/task_b/figures/fig12_seed_ci.png",
-    "data/tier_1/task_b/figures/fig20_bootstrap_ci.png",
-    "data/tier_1/task_c/figures/fig13_crosscohort_auroc.png",
-    "data/tier_1/task_c/figures/fig14_crosscohort_roc.png",
-    "data/tier_1/task_c/figures/fig17_ec_crosscohort.png",
+    "data/sample_classification/task_a_results.png",
+    "data/protein_prioritization/figures/fig1_pr_curves.png",
+    "data/protein_prioritization/figures/fig3_auprc_bars.png",
+    "data/protein_prioritization/figures/fig4_stratified.png",
+    "data/protein_prioritization/figures/fig6_v1_auprc.png",
+    "data/protein_prioritization/figures/fig7_v1_pr.png",
+    "data/protein_prioritization/figures/fig8_architecture.png",
+    "data/protein_prioritization/figures/fig10_stratified_seq.png",
+    "data/protein_prioritization/figures/fig12_seed_ci.png",
+    "data/protein_prioritization/figures/fig20_bootstrap_ci.png",
+    "data/cross_cohort/figures/fig13_crosscohort_auroc.png",
+    "data/cross_cohort/figures/fig14_crosscohort_roc.png",
+    "data/cross_cohort/figures/fig17_ec_crosscohort.png",
 ]
 
 

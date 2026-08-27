@@ -9,7 +9,7 @@ factually correct.
 Panel A: autoencoder / denoising-AE / VAE  (encoder-bottleneck-decoder)
 Panel B: supervised prediction head (abundance MLP / SeqMLP)
 
-Saved to data/tier_1/task_b/figures/fig0_architectures.png
+Saved to data/protein_prioritization/figures/fig0_architectures.png
 """
 import matplotlib
 
@@ -187,6 +187,6 @@ ax.text(0.1, 3.0, "   Supervised prediction head  (abundance MLP and SeqMLP)",
         fontsize=11.5, fontweight="bold", va="center")
 
 fig.subplots_adjust(left=0.02, right=0.98, top=0.99, bottom=0.01, hspace=0.06)
-out = "data/tier_1/task_b/figures/fig0_architectures.png"
+out = "data/protein_prioritization/figures/fig0_architectures.png"
 fig.savefig(out, dpi=220, bbox_inches="tight", facecolor="white")
 print("wrote", out)

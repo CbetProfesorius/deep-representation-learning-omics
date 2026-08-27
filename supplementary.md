@@ -142,32 +142,32 @@ header-includes:
 
 # Supplementary Figures
 
-![Figure S1 — Fusion architecture: the abundance MLP and the frozen ESM-2 sequence encoder each produce a score, combined by a validation-fitted logistic calibrator. Relates to Section 2.3.](data/tier_1/task_b/figures/fig8_architecture.png){width=82%}
+![Figure S1 — Fusion architecture: the abundance MLP and the frozen ESM-2 sequence encoder each produce a score, combined by a validation-fitted logistic calibrator. Relates to Section 2.3.](data/protein_prioritization/figures/fig8_architecture.png){width=82%}
 
-![Figure S2 — Sample-level phenotype classification, test-set performance. Left: AUROC, AUPRC and F1 for every method across both feature sets (species abundances and community pathways). Right: AUROC and AUPRC restricted to the species feature set. Relates to Section 3.2.](data/tier_1/task_a/task_a_results.png){width=88%}
+![Figure S2 — Sample-level phenotype classification, test-set performance. Left: AUROC, AUPRC and F1 for every method across both feature sets (species abundances and community pathways). Right: AUROC and AUPRC restricted to the species feature set. Relates to Section 3.2.](data/sample_classification/task_a_results.png){width=88%}
 
-![Figure S3 — Protein-family prioritization: AUPRC by method on the test set. The MLP nearly doubles the published MetaWIBELE baseline. Relates to Section 4.2.](data/tier_1/task_b/figures/fig3_auprc_bars.png){width=78%}
+![Figure S3 — Protein-family prioritization: AUPRC by method on the test set. The MLP nearly doubles the published MetaWIBELE baseline. Relates to Section 4.2.](data/protein_prioritization/figures/fig3_auprc_bars.png){width=78%}
 
-![Figure S4 — Protein-family prioritization: precision–recall curves. The MLP (ours) stays above the baselines across the operating range. Relates to Section 4.2.](data/tier_1/task_b/figures/fig1_pr_curves.png){width=72%}
+![Figure S4 — Protein-family prioritization: precision–recall curves. The MLP (ours) stays above the baselines across the operating range. Relates to Section 4.2.](data/protein_prioritization/figures/fig1_pr_curves.png){width=72%}
 
-![Figure S5 — Protein-family prioritization: AUPRC by characterization category. The MLP wins in every stratum, with the largest relative gain on weak-homology families. Relates to Section 4.3.](data/tier_1/task_b/figures/fig4_stratified.png){width=82%}
+![Figure S5 — Protein-family prioritization: AUPRC by characterization category. The MLP wins in every stratum, with the largest relative gain on weak-homology families. Relates to Section 4.3.](data/protein_prioritization/figures/fig4_stratified.png){width=82%}
 
-![Figure S6 — Sequence and fusion models: precision–recall curves for the ESM-2 650M sequence-only and fusion models versus the abundance baseline (test). Relates to Section 5.2.](data/tier_1/task_b/figures/fig7_v1_pr.png){width=72%}
+![Figure S6 — Sequence and fusion models: precision–recall curves for the ESM-2 650M sequence-only and fusion models versus the abundance baseline (test). Relates to Section 5.2.](data/protein_prioritization/figures/fig7_v1_pr.png){width=72%}
 
-![Figure S7 — Improvement over the published MetaWIBELE baseline: AUPRC of each model with the relative factor annotated. The dashed line is the MetaWIBELE baseline (0.076). Relates to Section 5.4.](data/tier_1/task_b/figures/fig9_vs_metawibele.png){width=78%}
+![Figure S7 — Improvement over the published MetaWIBELE baseline: AUPRC of each model with the relative factor annotated. The dashed line is the MetaWIBELE baseline (0.076). Relates to Section 5.4.](data/protein_prioritization/figures/fig9_vs_metawibele.png){width=78%}
 
-![Figure S8 — Prioritization robustness: mean test AUPRC over five random splits with 95 % confidence intervals. Every model's interval sits well clear of MetaWIBELE's. Relates to Section 5.5.](data/tier_1/task_b/figures/fig12_seed_ci.png){width=78%}
+![Figure S8 — Prioritization robustness: mean test AUPRC over five random splits with 95 % confidence intervals. Every model's interval sits well clear of MetaWIBELE's. Relates to Section 5.5.](data/protein_prioritization/figures/fig12_seed_ci.png){width=78%}
 
-![Figure S9 — Sequence model by characterization bucket: the ESM-2 sequence model lifts the weak and novel strata far above the abundance model, which is where annotation-based methods struggle most. Relates to Section 5.6.](data/tier_1/task_b/figures/fig10_stratified_seq.png){width=82%}
+![Figure S9 — Sequence model by characterization bucket: the ESM-2 sequence model lifts the weak and novel strata far above the abundance model, which is where annotation-based methods struggle most. Relates to Section 5.6.](data/protein_prioritization/figures/fig10_stratified_seq.png){width=82%}
 
-![Figure S10 — Left: density of the two score ranks (weak correlation). Right: of the true positives recovered in the top 1,000, most are unique to either the abundance or the sequence model rather than shared. Relates to Section 5.7.](data/tier_1/task_b/figures/fig11_complementarity.png){width=92%}
+![Figure S10 — Left: density of the two score ranks (weak correlation). Right: of the true positives recovered in the top 1,000, most are unique to either the abundance or the sequence model rather than shared. Relates to Section 5.7.](data/protein_prioritization/figures/fig11_complementarity.png){width=92%}
 
-![Figure S11 — Interpretation of the prioritized families. Left: the top-ranked families are enriched for extracellular and periplasmic proteins, not inner-membrane ones. Right: the most enriched Pfam domains are the SusC/SusD glycan-foraging system, with elongation factors and central metabolism also present. Relates to Section 5.8.](data/tier_1/task_b/figures/fig19_interpret_taskb.png){width=92%}
+![Figure S11 — Interpretation of the prioritized families. Left: the top-ranked families are enriched for extracellular and periplasmic proteins, not inner-membrane ones. Right: the most enriched Pfam domains are the SusC/SusD glycan-foraging system, with elongation factors and central metabolism also present. Relates to Section 5.8.](data/protein_prioritization/figures/fig19_interpret_taskb.png){width=92%}
 
-![Figure S12 — Headline prioritization metrics with 95 % bootstrap confidence intervals on the fixed 650M test set. The intervals are narrow and do not overlap between consecutive methods, so each rung of the ladder is a statistically clear improvement. Relates to Section 5.9.](data/tier_1/task_b/figures/fig20_bootstrap_ci.png){width=78%}
+![Figure S12 — Headline prioritization metrics with 95 % bootstrap confidence intervals on the fixed 650M test set. The intervals are narrow and do not overlap between consecutive methods, so each rung of the ladder is a statistically clear improvement. Relates to Section 5.9.](data/protein_prioritization/figures/fig20_bootstrap_ci.png){width=78%}
 
-![Figure S13 — Cross-cohort ROC curves for the HMP2-trained models applied to the independent Franzosa cohort. Relates to Section 6.3.](data/tier_1/task_c/figures/fig14_crosscohort_roc.png){width=60%}
+![Figure S13 — Cross-cohort ROC curves for the HMP2-trained models applied to the independent Franzosa cohort. Relates to Section 6.3.](data/cross_cohort/figures/fig14_crosscohort_roc.png){width=60%}
 
-![Figure S14 — High-dimensional companion: cross-cohort transfer on 2,052 shared EC enzymes. The autoencoder again transfers best in the data-rich direction. Relates to Section 6.5.](data/tier_1/task_c/figures/fig17_ec_crosscohort.png){width=76%}
+![Figure S14 — High-dimensional companion: cross-cohort transfer on 2,052 shared EC enzymes. The autoencoder again transfers best in the data-rich direction. Relates to Section 6.5.](data/cross_cohort/figures/fig17_ec_crosscohort.png){width=76%}
 
-![Figure S15 — Cross-cohort interpretation. Left: top differentially abundant species (IBD vs control), * marks those matching the known IBD signature. Right: the two cohorts agree on species effects ($r=0.68$), coloured points are known IBD-up (red) and IBD-down (blue) taxa. Relates to Section 6.6.](data/tier_1/task_c/figures/fig18_feature_importance.png){width=95%}
+![Figure S15 — Cross-cohort interpretation. Left: top differentially abundant species (IBD vs control), * marks those matching the known IBD signature. Right: the two cohorts agree on species effects ($r=0.68$), coloured points are known IBD-up (red) and IBD-down (blue) taxa. Relates to Section 6.6.](data/cross_cohort/figures/fig18_feature_importance.png){width=95%}

@@ -7,9 +7,9 @@
 # the pipeline can be re-run from scratch. Small result tables (CSV) and
 # all generated figures are versioned.
 # ---------------------------------------------------------------
-data/tier_1/task_a/hmp2_metadata.csv
-data/tier_1/task_b/raw/
-data/tier_1/task_c/raw/
+data/sample_classification/hmp2_metadata.csv
+data/protein_prioritization/raw/
+data/cross_cohort/raw/
 *.parquet
 *.pt
 *.npy

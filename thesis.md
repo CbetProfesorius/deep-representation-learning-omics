@@ -97,7 +97,7 @@ For reference, the frozen sequence backbones are much larger than anything I tra
 
 Figure 1 sketches the two network families. The unsupervised encoders (panel A) all share the same symmetric `d-256-64-32-64-256-d` shape and differ only in how they are trained: the plain autoencoder reconstructs its input, the denoising variant reconstructs the clean input from a noised copy, and the VAE replaces the 32-dimensional code with a sampled Gaussian. I keep the bottleneck at 32 because it is small enough to force a genuine compression of a few-hundred-feature input yet large enough to retain label-relevant structure, and the phenotype classifier is a plain logistic head read straight off that frozen code. The supervised predictors (panel B) are deliberately shallow `in-256-64-1` MLPs: the abundance MLP and the `SeqMLP` are the same head fed different inputs, with dropout 0.3 and a strongly positive-weighted loss to cope with the 1.87 % positive rate, while the expensive ESM-2 backbone stays frozen so that only this light head is trained. Supplementary Figure S1 sketches the calibrator that combines the abundance and sequence scores.
 
-![Model families used in the thesis. **A** The unsupervised encoder (autoencoder, denoising autoencoder, VAE) with its symmetric bottleneck and the logistic head taken off the 32-dimensional code. **B** The shared supervised prediction head (abundance MLP and `SeqMLP`), fed either raw abundances, k-mer composition, or frozen mean-pooled ESM-2 embeddings.](data/tier_1/task_b/figures/fig0_architectures.png){width=92%}
+![Model families used in the thesis. **A** The unsupervised encoder (autoencoder, denoising autoencoder, VAE) with its symmetric bottleneck and the logistic head taken off the 32-dimensional code. **B** The shared supervised prediction head (abundance MLP and `SeqMLP`), fed either raw abundances, k-mer composition, or frozen mean-pooled ESM-2 embeddings.](data/protein_prioritization/figures/fig0_architectures.png){width=92%}
 
 # 3. Sample-level phenotype classification
 
@@ -146,7 +146,7 @@ The robustness result is the more interesting one. I took each fitted model and 
 | Denoising AE32 + LR | 0.951 | 0.892 | 0.921 |
 | **VAE32 + LR** | **0.965** | **0.892** | **0.933** |
 
-![Robustness of the sample-level classifier: test AUROC as the inputs are corrupted with Gaussian noise (left) and random missingness (right). The linear ElasticNet degrades fastest; the learned low-dimensional codes, and the VAE most of all, are far more robust.](data/tier_1/task_a/figures/fig15_robustness.png){width=95%}
+![Robustness of the sample-level classifier: test AUROC as the inputs are corrupted with Gaussian noise (left) and random missingness (right). The linear ElasticNet degrades fastest; the learned low-dimensional codes, and the VAE most of all, are far more robust.](data/sample_classification/figures/fig15_robustness.png){width=95%}
 
 So even though the models tie on clean data, they are not equivalent. A linear model reads the raw features directly, so corruption passes straight through it; the learned low-dimensional codes, by contrast, soak much of it up — a concrete instance of the robustness advantage the hypothesis anticipated. What counts as the "best" model, then, is not fixed — it follows the yardstick. Clean accuracy leaves them indistinguishable. Introduce realistic noise and dropout, though, and the deep representations move clearly out in front.
 
@@ -186,7 +186,7 @@ The sequence-embedding backend can be swapped out, and I report two. One is a cl
 
 fig6 traces the AUPRC progression from MetaWIBELE through abundance and sequence to fusion. Complete metrics for every variant, P@1000 and enrichment included, sit in Supplementary Table S4; the matching precision–recall curves are Supplementary Figure S6.
 
-![Sequence and fusion models: AUPRC progression from MetaWIBELE through abundance, sequence (k-mer and ESM-2 650M) and fusion (test).](data/tier_1/task_b/figures/fig6_v1_auprc.png){width=80%}
+![Sequence and fusion models: AUPRC progression from MetaWIBELE through abundance, sequence (k-mer and ESM-2 650M) and fusion (test).](data/protein_prioritization/figures/fig6_v1_auprc.png){width=80%}
 
 ## 5.3 Findings
 
@@ -268,7 +268,7 @@ Since the within-HMP2 grouped estimate is near chance and noisy (few control par
 | PCA32 + LR | 0.890 | 0.767 [0.700, 0.828] | 0.702 | 0.735 |
 | **Autoencoder32 + LR** | 0.865 | **0.790** [0.728, 0.849] | 0.697 | **0.744** |
 
-![Cross-cohort transfer AUROC in both directions, with the clean within-cohort CV as a reference diamond and 95 % bootstrap CIs on the HMP2 → Franzosa bars. Training on the larger HMP2 and testing on Franzosa, the learned representations transfer best.](data/tier_1/task_c/figures/fig13_crosscohort_auroc.png){width=80%}
+![Cross-cohort transfer AUROC in both directions, with the clean within-cohort CV as a reference diamond and 95 % bootstrap CIs on the HMP2 → Franzosa bars. Training on the larger HMP2 and testing on Franzosa, the learned representations transfer best.](data/cross_cohort/figures/fig13_crosscohort_auroc.png){width=80%}
 
 Supplementary Figure S13 gives the corresponding ROC curves.
 
@@ -298,7 +298,7 @@ This is the mechanistic reason the classifier transfers: it keys on a microbial 
 
 Before trusting any transfer number it is worth asking what the dominant structure in the pooled data actually is, and PCA is the natural tool. For this I standardized the log-abundances of the 197 shared species across the pooled HMP2 + Franzosa samples and ran a 10-component PCA (Jolliffe & Cadima 2016). The first two components account for just 8.9 % and 5.8 % of the variance (Supplementary Table S11) — about what one expects from sparse, high-dimensional microbiome data, and a first sign that no single axis captures the phenotype. More telling is how well each kind of structure separates along these axes. A logistic regression on the first ten PCs distinguishes the two cohorts almost perfectly (5-fold AUROC 0.99), but tells IBD from control only weakly (0.66). The dominant axis of variation in the combined data, in other words, is which study a sample came from — a batch effect — while the diagnosis signal is far fainter and heavily overlapping (fig21).
 
-![PCA ordination of the pooled HMP2 + Franzosa samples in the shared 197-species space. Left: coloured by cohort, the two studies separate almost cleanly (10-PC AUROC 0.99). Right: coloured by diagnosis, IBD and control overlap heavily (10-PC AUROC 0.66). The batch effect dominates the variance; the biological signal is real but faint.](data/tier_1/task_c/figures/fig21_ordination.png){width=98%}
+![PCA ordination of the pooled HMP2 + Franzosa samples in the shared 197-species space. Left: coloured by cohort, the two studies separate almost cleanly (10-PC AUROC 0.99). Right: coloured by diagnosis, IBD and control overlap heavily (10-PC AUROC 0.66). The batch effect dominates the variance; the biological signal is real but faint.](data/cross_cohort/figures/fig21_ordination.png){width=98%}
 
 This makes the transfer results in Section 6.3 more convincing, not less. A classifier trained on HMP2 still reaches AUROC 0.79 on Franzosa even though the two cohorts are nearly linearly separable by batch, so it has to be keying on the faint shared biological axis rather than the loud batch one. The ordination also explains two design choices: why standardizing on training-cohort statistics matters (it removes part of the batch offset), and why the simplest model, which cannot help absorbing some batch variance into its coefficients, transfers slightly worse than the bottlenecked representations. PCA here does double duty: as the dimensionality-reduction baseline inside the classifier (Section 6.3), and, read this way, as a diagnostic that separates confound from signal.
 

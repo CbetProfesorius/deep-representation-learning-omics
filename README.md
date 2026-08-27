@@ -44,13 +44,13 @@ A methodological caution worth highlighting: naive sample-level cross-validation
 ## Repository layout
 
 ```
-data/tier_1/
-├── task_a/     Sample-level phenotype classification + robustness study
+data/
+├── sample_classification/      Section 3: dysbiosis classification + robustness
 │   ├── explore.ipynb          data prep, ElasticNet / PCA / AE comparison
 │   ├── robust_vae.py          long-budget encoders (AE, DAE, VAE) + noise/missingness sweep
 │   ├── figures/               generated figures
 │   └── predictions/           result tables (CSV)
-├── task_b/     Potentially bioactive protein-family prioritization (main task)
+├── protein_prioritization/     Sections 4-5: protein-family ranking (main task)
 │   ├── 01_data.ipynb          build 1,447,952 families, MPX positive labels
 │   ├── 02_abundance_only.ipynb  linear + MLP on abundance profiles
 │   ├── 03_sequence.ipynb      k-mer and ESM-2 sequence models, fusion
@@ -63,7 +63,7 @@ data/tier_1/
 │   ├── run_esm_*.sh           Slurm submission scripts
 │   ├── figures/
 │   └── predictions/           result tables (CSV)
-└── task_c/     Cross-cohort generalisation
+└── cross_cohort/               Section 6: cross-cohort generalisation
     ├── taskc_crosscohort.py   HMP2 <-> PRISM transfer on 197 shared species
     ├── ec_crosscohort.py      same on 2,052 shared EC enzymes
     ├── feature_importance.py  per-species Cohen's d, cross-cohort agreement
@@ -83,7 +83,7 @@ Raw data is **not** included in this repository (the protein-family inputs alone
 - **Positive labels**: Supplementary Tables S7/S8 of Zhang et al. (2022), the metaproteomics-validated families
 - **PRISM cohort** (external validation): Supplementary Datasets 4 and 6 of Franzosa et al. (2019)
 
-Excluded from version control: `task_b/raw/`, all `.parquet` and `.pt` intermediates, compressed profile tables, and the third-party paper supplements.
+Excluded from version control: `protein_prioritization/raw/`, all `.parquet` and `.pt` intermediates, compressed profile tables, and the third-party paper supplements.
 
 ## Reproducing
 
@@ -91,7 +91,7 @@ Excluded from version control: `task_b/raw/`, all `.parquet` and `.pt` intermedi
 pip install -r requirements.txt
 ```
 
-Then run, in order: `task_a/explore.ipynb` and `robust_vae.py`; `task_b/01_data.ipynb` → `02_abundance_only.ipynb` → `03_sequence.ipynb`; `task_c/taskc_crosscohort.py` and `ec_crosscohort.py`.
+Then run, in order: `sample_classification/explore.ipynb` and `robust_vae.py`; `protein_prioritization/01_data.ipynb` → `02_abundance_only.ipynb` → `03_sequence.ipynb`; `cross_cohort/taskc_crosscohort.py` and `ec_crosscohort.py`.
 
 ESM-2 embeddings for all 1.45 M families were computed on the CSUC Pirineus3 cluster (Slurm, NVIDIA H100) via `esm_embed.py`: 1 h 18 min for the 35M model, 4 h 32 min for the 650M model, producing a 7.4 GB matrix. Everything else runs on a laptop with the Apple-Silicon MPS backend.
 
