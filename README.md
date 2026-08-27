@@ -23,7 +23,7 @@ Everything is benchmarked against a published method on its own data and labels:
 |---|---|
 | Sample-level dysbiosis classification | Classical models win on clean accuracy (ElasticNet AUROC 0.940); the autoencoder does not improve on them at this dimensionality |
 | Robustness to corrupted input | Learned representations degrade far more gracefully; the VAE is most robust (0.892 at σ=3 noise vs 0.765 for ElasticNet) |
-| Bioactive protein-family ranking | Abundance MLP reaches AUPRC **0.142** vs MetaWIBELE's **0.076** (1.9×), winning in every annotation stratum |
+| Potentially bioactive protein-family ranking | Abundance MLP reaches AUPRC **0.142** vs MetaWIBELE's **0.076** (1.9×), winning in every annotation stratum |
 | Sequence + multimodal fusion | ESM-2 650M sequence-only **0.271**; fusion with abundance **0.368** — 4.8× MetaWIBELE, 86 % precision in the top 100 |
 | Cross-cohort generalisation | Autoencoder transfers at AUROC **0.790** vs ElasticNet **0.671** (HMP2 → PRISM), the clearest deep-learning win |
 
@@ -50,7 +50,7 @@ data/tier_1/
 │   ├── robust_vae.py          long-budget encoders (AE, DAE, VAE) + noise/missingness sweep
 │   ├── figures/               generated figures
 │   └── predictions/           result tables (CSV)
-├── task_b/     Bioactive protein-family prioritization (the main task)
+├── task_b/     Potentially bioactive protein-family prioritization (main task)
 │   ├── 01_data.ipynb          build 1,447,952 families, MPX positive labels
 │   ├── 02_abundance_only.ipynb  linear + MLP on abundance profiles
 │   ├── 03_sequence.ipynb      k-mer and ESM-2 sequence models, fusion

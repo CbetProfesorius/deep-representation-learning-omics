@@ -162,7 +162,7 @@ header-includes:
 
 ![Figure S10 — Left: density of the two score ranks (weak correlation). Right: of the true positives recovered in the top 1,000, most are unique to either the abundance or the sequence model rather than shared. Relates to Section 5.7.](data/tier_1/task_b/figures/fig11_complementarity.png){width=92%}
 
-![Figure S11 — Interpretation of the prioritized families. Left: predicted-bioactive families are enriched for extracellular and periplasmic proteins, not inner-membrane ones. Right: the most enriched Pfam domains are the SusC/SusD glycan-foraging system, with elongation factors and central metabolism also present. Relates to Section 5.8.](data/tier_1/task_b/figures/fig19_interpret_taskb.png){width=92%}
+![Figure S11 — Interpretation of the prioritized families. Left: the top-ranked families are enriched for extracellular and periplasmic proteins, not inner-membrane ones. Right: the most enriched Pfam domains are the SusC/SusD glycan-foraging system, with elongation factors and central metabolism also present. Relates to Section 5.8.](data/tier_1/task_b/figures/fig19_interpret_taskb.png){width=92%}
 
 ![Figure S12 — Headline prioritization metrics with 95 % bootstrap confidence intervals on the fixed 650M test set. The intervals are narrow and do not overlap between consecutive methods, so each rung of the ladder is a statistically clear improvement. Relates to Section 5.9.](data/tier_1/task_b/figures/fig20_bootstrap_ci.png){width=78%}
 
