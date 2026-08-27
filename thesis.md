@@ -360,7 +360,9 @@ Every run here reproduces. In each model I fix `torch.manual_seed(0)`, `np.rando
 
 Everything I use is public. The MetaWIBELE outputs of Zhang et al. (2022) come from the Huttenhower data portal and the IBDMDB (<https://ibdmdb.org/>), and the PRISM cohort from Supplementary Datasets 4 and 6 of Franzosa et al. (2019).
 
-The source code, analysis notebooks, result tables and figure-generating scripts are at <https://github.com/CbetProfesorius/deep-representation-learning-omics>. The accompanying Supplementary Material document sits there too: Tables S1–S11, Figures S1–S15, and the HPC details.
+**Supplementary Material.** Supplementary Tables S1–S11, Supplementary Figures S1–S15 and the HPC environment notes are in the accompanying document, available at <https://github.com/CbetProfesorius/deep-representation-learning-omics/blob/main/Supplementary_Material.pdf>.
+
+**Code.** The source code, analysis notebooks, result tables and figure-generating scripts are at <https://github.com/CbetProfesorius/deep-representation-learning-omics>.
 
 # References
 
