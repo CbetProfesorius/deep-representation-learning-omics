@@ -2,7 +2,7 @@
 title: "Supplementary Material"
 subtitle: "Deep Representation Learning for High-Dimensional Omics Data"
 author: "Arijus Skaisgirys"
-date: \today
+date: "June 2026"
 geometry: margin=2.2cm
 fontsize: 10pt
 papersize: a4
