@@ -143,9 +143,14 @@ TITLEPAGE = r'''\begin{document}
 \begin{minipage}{0.82\textwidth}\centering
 Supervisor: Prof. Dr. Andrius Stasiukynas, Kazimieras Simonavičius University\\[0.3cm]
 Co-supervisor: Francesco Strati, PhD, Lithuanian University of Health Sciences\\[0.3cm]
-Academic tutor: Jordi Vill\`a i Freixa, Department of Biosciences, Faculty of Sciences, Technology and Engineering, University of Vic -- Central University of Catalonia
-\end{minipage}\\[1.6cm]
+Academic tutor: Jordi Vill\`a i Freixa, Department of Biosciences, University of Vic -- Central University of Catalonia
+\end{minipage}
+\vfill
+Department of Biosciences\\[0.3cm]
+Faculty of Sciences, Technology and Engineering\\[0.3cm]
+University of Vic -- Central University of Catalonia\\[1.0cm]
 June 2026
+\vspace{1.4cm}
 \end{center}
 \end{titlepage}
 '''
