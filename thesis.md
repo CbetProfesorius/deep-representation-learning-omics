@@ -107,7 +107,18 @@ There are three models. ElasticNet is penalized logistic regression on log-abund
 
 ## 3.2 Results
 
-Supplementary Table S12 reports held-out performance for all six method–feature pairings. ElasticNet on functional pathways performs best, at a test AUROC of 0.940, followed by PCA32 + LR and then the autoencoder. The dominant pattern concerns the feature set rather than the model. Pathways outperform species for all three methods, the species runs spanning AUROC 0.495 to 0.857 and the pathway runs 0.809 to 0.940. Lowest of all is the autoencoder on species, at AUROC 0.495; at this sample size the unsupervised bottleneck has little to exploit.
+Table 1 reports held-out performance for all six method–feature pairings. ElasticNet on functional pathways performs best, at a test AUROC of 0.940, followed by PCA32 + LR and then the autoencoder. The dominant pattern concerns the feature set rather than the model. Pathways outperform species for all three methods, the species runs spanning AUROC 0.495 to 0.857 and the pathway runs 0.809 to 0.940. Lowest of all is the autoencoder on species, at AUROC 0.495; at this sample size the unsupervised bottleneck has little to exploit.
+
+: Table 1 — Sample-level dysbiosis classification (patient-level held-out test set).
+
+| Method | Features | test AUROC | test AUPRC | test F1 |
+|---|---|---|---|---|
+| ElasticNet | species | 0.857 | 0.694 | 0.662 |
+| **ElasticNet** | **pathways** | **0.940** | **0.866** | **0.733** |
+| PCA32 + LR | species | 0.612 | 0.507 | 0.490 |
+| PCA32 + LR | pathways | 0.885 | 0.738 | 0.654 |
+| AE32 + LR | species | 0.495 | 0.407 | 0.349 |
+| AE32 + LR | pathways | 0.809 | 0.655 | 0.581 |
 
 ## 3.3 Findings
 
@@ -121,7 +132,19 @@ Section 3.2 used a light training budget, and there the plain autoencoder traile
 
 The first finding is straightforward: with a full training budget, the deficit seen in Section 3.2 largely disappears. On clean test data the models converge to around AUROC 0.95 (ElasticNet 0.963, PCA 0.951, autoencoder 0.964, denoising AE 0.951, VAE 0.965). The autoencoder's earlier deficit was therefore at least partly a training-budget effect rather than a hard ceiling, which is a fair correction to how I read Section 3.2.
 
-The robustness comparison is more informative. Each model is fitted once on clean training data and then evaluated on corrupted test inputs; no model sees corruption during training, so this measures robustness of an already-fitted pipeline rather than augmentation. Corruption is applied after standardisation, in two forms. Additive Gaussian noise draws $\varepsilon \sim \mathcal{N}(0, \sigma^2)$ independently per feature and adds it to the standardised test matrix, with $\sigma$ swept over 0, 0.5, 1, 2 and 3 standard-deviation units. Missingness selects a fraction of feature entries uniformly at random — 0, 10, 30, 50 and 70 % — and resets them to the training-set mean, which is zero after standardisation. Each level is averaged over 20 independent corruption draws with seeds 0 to 19, and the encoder weights and the logistic head are held fixed throughout. The classical ElasticNet is by far the most brittle. At heavy noise ($\sigma=3$) it falls to AUROC 0.765, and at 70 % missing features to 0.835. Every representation-based model degrades much more gracefully, and the VAE is the most robust of all, holding 0.892 under $\sigma=3$ noise and 0.933 at 70 % missingness. Supplementary Table S13 gives the full clean-versus-corrupted comparison and Supplementary Figure S16 plots both degradation curves.
+The robustness comparison is more informative. Each model is fitted once on clean training data and then evaluated on corrupted test inputs; no model sees corruption during training, so this measures robustness of an already-fitted pipeline rather than augmentation. Corruption is applied after standardisation, in two forms. Additive Gaussian noise draws $\varepsilon \sim \mathcal{N}(0, \sigma^2)$ independently per feature and adds it to the standardised test matrix, with $\sigma$ swept over 0, 0.5, 1, 2 and 3 standard-deviation units. Missingness selects a fraction of feature entries uniformly at random — 0, 10, 30, 50 and 70 % — and resets them to the training-set mean, which is zero after standardisation. Each level is averaged over 20 independent corruption draws with seeds 0 to 19, and the encoder weights and the logistic head are held fixed throughout. The classical ElasticNet is by far the most brittle. At heavy noise ($\sigma=3$) it falls to AUROC 0.765, and at 70 % missing features to 0.835. Every representation-based model degrades much more gracefully, and the VAE is the most robust of all, holding 0.892 under $\sigma=3$ noise and 0.933 at 70 % missingness.
+
+: Table 2 — Clean accuracy and robustness (test AUROC; dysbiosis, pathways).
+
+| Model | clean | noise $\sigma=3$ | 70 % missing |
+|---|---|---|---|
+| ElasticNet | 0.963 | 0.765 | 0.835 |
+| PCA32 + LR | 0.951 | 0.871 | 0.919 |
+| Autoencoder32 + LR | 0.964 | 0.866 | 0.911 |
+| Denoising AE32 + LR | 0.951 | 0.892 | 0.921 |
+| **VAE32 + LR** | **0.965** | **0.892** | **0.933** |
+
+![Robustness of the sample-level classifier: test AUROC as the inputs are corrupted with Gaussian noise (left) and random missingness (right). The linear ElasticNet degrades fastest; the learned low-dimensional codes, and the VAE most of all, are far more robust.](data/sample_classification/figures/fig15_robustness.png){width=95%}
 
 So even though the models tie on clean data, they are not equivalent. A linear model reads the raw features directly, so corruption passes straight through it; the learned low-dimensional codes, by contrast, soak much of it up — a concrete instance of the robustness advantage the hypothesis anticipated. What counts as the "best" model, then, is not fixed — it follows the yardstick. Clean accuracy leaves them indistinguishable. Introduce realistic noise and dropout, though, and the deep representations move clearly out in front.
 
@@ -171,9 +194,9 @@ Sequence on its own beats both the abundance model and MetaWIBELE. Even k-mer co
 
 ## 5.4 Consolidated comparison with the original method
 
-Table 1 puts every model I trained next to the published MetaWIBELE baseline on the same test families, using the relative factor $r$ from Section 2.1. Every one of them, down to the plain linear classifier, beats the published priority score, and the fusion model does so by 4.8×.
+Table 3 puts every model I trained next to the published MetaWIBELE baseline on the same test families, using the relative factor $r$ from Section 2.1. Every one of them, down to the plain linear classifier, beats the published priority score, and the fusion model does so by 4.8×.
 
-: Table 1 — All models vs. the published MetaWIBELE baseline (test set; $r$ = AUPRC ratio).
+: Table 3 — All models vs. the published MetaWIBELE baseline (test set; $r$ = AUPRC ratio).
 
 | Model | AUPRC | AUROC | P@100 | $r$ vs MetaWIBELE |
 |---|---|---|---|---|
@@ -235,9 +258,9 @@ Static species composition therefore barely encodes diagnosis once generalizatio
 
 ## 6.3 Results
 
-Since the within-HMP2 grouped estimate is near chance and noisy (few control participants), I use the Franzosa cohort, which is cross-sectional (one sample per subject), as the clean within-cohort reference: there a plain stratified CV cannot leak. The two references are not structurally equivalent, and the comparison should be read with that in mind — Franzosa contributes one sample per subject, so its cross-validation faces none of the repeated-measures structure that makes grouped CV on the longitudinal HMP2 both necessary and pessimistic. Table 2 reports that reference together with transfer in both directions.
+Since the within-HMP2 grouped estimate is near chance and noisy (few control participants), I use the Franzosa cohort, which is cross-sectional (one sample per subject), as the clean within-cohort reference: there a plain stratified CV cannot leak. The two references are not structurally equivalent, and the comparison should be read with that in mind — Franzosa contributes one sample per subject, so its cross-validation faces none of the repeated-measures structure that makes grouped CV on the longitudinal HMP2 both necessary and pessimistic. Table 4 reports that reference together with transfer in both directions.
 
-: Table 2 — Cross-cohort transfer, AUROC (197 shared species; AUPRC in text). The bracketed range on HMP2 → Franzosa is a 95 % bootstrap CI (B=2000 resamples of the 220-sample Franzosa test set).
+: Table 4 — Cross-cohort transfer, AUROC (197 shared species; AUPRC in text). The bracketed range on HMP2 → Franzosa is a 95 % bootstrap CI (B=2000 resamples of the 220-sample Franzosa test set).
 
 | Model | within-cohort CV (clean) | HMP2 → Franzosa [95 % CI] | Franzosa → HMP2 | mean transfer |
 |---|---|---|---|---|
@@ -245,7 +268,9 @@ Since the within-HMP2 grouped estimate is near chance and noisy (few control par
 | PCA32 + LR | 0.890 | 0.767 [0.700, 0.828] | 0.702 | 0.735 |
 | **Autoencoder32 + LR** | 0.865 | **0.790** [0.728, 0.849] | 0.697 | **0.744** |
 
-Supplementary Figure S17 plots the same comparison and Supplementary Figure S13 gives the corresponding ROC curves.
+Supplementary Figure S13 gives the corresponding ROC curves.
+
+![Cross-cohort transfer AUROC in both directions, with the clean within-cohort CV as a reference diamond and 95 % bootstrap CIs on the HMP2 → Franzosa bars. Training on the larger HMP2 and testing on Franzosa, the learned representations transfer best.](data/cross_cohort/figures/fig13_crosscohort_auroc.png){width=80%}
 
 ## 6.4 Findings
 

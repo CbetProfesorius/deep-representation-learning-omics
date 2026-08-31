@@ -55,7 +55,8 @@ pandoc(ROOT / '_abstract.md', ROOT / '_abstract.tex')
 pandoc(ROOT / '_body.md', ROOT / '_body.tex')
 
 body = (ROOT / '_body.tex').read_text()
-body = body.replace('\\begin{figure}', '\\begin{figure*}[tp]').replace('\\end{figure}', '\\end{figure*}')
+body = (body.replace('\\begin{figure}', '\\begin{figure*}[tb]')
+            .replace('\\end{figure}', '\\end{figure*}'))
 
 
 def brace_group(s, i):
@@ -75,7 +76,7 @@ def conv_block(block):
     head = re.search(r'\\toprule\\noalign\{\}\s*(.*?)\\midrule\\noalign\{\}\s*\\endfirsthead', block, re.S)
     header = head.group(1).strip() if head else ''
     rows = re.search(r'\\endlastfoot\s*(.*?)\\end\{longtable\}', block, re.S).group(1).strip()
-    return ('\\begin{table*}[tp]\n\\centering\n\\footnotesize\n'
+    return ('\\begin{table*}[tb]\n\\centering\n\\footnotesize\n'
             + (('\\caption{' + caption + '}\n') if caption else '')
             + '\\begin{tabular}' + colspec + '\n\\toprule\n' + header
             + '\n\\midrule\n' + rows + '\n\\bottomrule\n\\end{tabular}\n\\end{table*}\n')

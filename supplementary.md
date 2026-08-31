@@ -129,26 +129,7 @@ header-includes:
 | **Autoencoder32 + LR** | 0.908 | **0.738** | 0.653 |
 | VAE32 + LR | 0.867 | 0.687 | 0.629 |
 
-: Table S12 — Sample-level dysbiosis classification, all six method–feature pairings (patient-level held-out test set). Relates to Section 3.2.
 
-| Method | Features | test AUROC | test AUPRC | test F1 |
-|---|---|---|---|---|
-| ElasticNet | species | 0.857 | 0.694 | 0.662 |
-| **ElasticNet** | **pathways** | **0.940** | **0.866** | **0.733** |
-| PCA32 + LR | species | 0.612 | 0.507 | 0.490 |
-| PCA32 + LR | pathways | 0.885 | 0.738 | 0.654 |
-| AE32 + LR | species | 0.495 | 0.407 | 0.349 |
-| AE32 + LR | pathways | 0.809 | 0.655 | 0.581 |
-
-: Table S13 — Clean accuracy and robustness to corrupted inputs (test AUROC; dysbiosis, community pathways). Relates to Section 3.4.
-
-| Model | clean | noise $\sigma=3$ | 70 % missing |
-|---|---|---|---|
-| ElasticNet | 0.963 | 0.765 | 0.835 |
-| PCA32 + LR | 0.951 | 0.871 | 0.919 |
-| Autoencoder32 + LR | 0.964 | 0.866 | 0.911 |
-| Denoising AE32 + LR | 0.951 | 0.892 | 0.921 |
-| **VAE32 + LR** | **0.965** | **0.892** | **0.933** |
 
 : Table S11 — PCA of the pooled cohorts (197 shared species) and how separable each structure is along the first ten components. Relates to Section 6.7.
 
@@ -190,9 +171,5 @@ header-includes:
 ![Figure S13 — Cross-cohort ROC curves for the HMP2-trained models applied to the independent Franzosa cohort. Relates to Section 6.3.](data/cross_cohort/figures/fig14_crosscohort_roc.png){width=60%}
 
 ![Figure S14 — High-dimensional companion: cross-cohort transfer on 2,052 shared EC enzymes. The autoencoder again transfers best in the data-rich direction. Relates to Section 6.5.](data/cross_cohort/figures/fig17_ec_crosscohort.png){width=76%}
-
-![Figure S17 — Cross-cohort transfer AUROC in both directions, with the clean within-cohort CV as a reference diamond and 95 % bootstrap CIs on the HMP2 → Franzosa bars. Training on the larger HMP2 and testing on Franzosa, the learned representations transfer best. Relates to Section 6.3.](data/cross_cohort/figures/fig13_crosscohort_auroc.png){width=80%}
-
-![Figure S16 — Robustness of the sample-level classifier: test AUROC as the inputs are corrupted with Gaussian noise (left) and random missingness (right). The linear ElasticNet degrades fastest; the learned low-dimensional codes, and the VAE most of all, are far more robust. Relates to Section 3.4.](data/sample_classification/figures/fig15_robustness.png){width=92%}
 
 ![Figure S15 — Cross-cohort interpretation. Left: top differentially abundant species (IBD vs control), * marks those matching the known IBD signature. Right: the two cohorts agree on species effects ($r=0.68$), coloured points are known IBD-up (red) and IBD-down (blue) taxa. Relates to Section 6.6.](data/cross_cohort/figures/fig18_feature_importance.png){width=95%}
