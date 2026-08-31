@@ -341,8 +341,6 @@ Everything I use is public. The MetaWIBELE outputs of Zhang et al. (2022) come f
 
 # References
 
-\footnotesize
-
 **Benchmark, cohorts and IBD biology**
 
 1. Zhang Y, Bhosle A, Bae S, McIver LJ, *et al.* Discovery of bioactive microbial gene products in inflammatory bowel disease. *Nature* **606**, 754–760 (2022). (MetaWIBELE; HMP2 protein-family priorities and metaproteomics-validated positives.)
