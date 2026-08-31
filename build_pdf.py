@@ -155,12 +155,10 @@ June 2026
 \end{titlepage}
 '''
 
-# The 15-page limit is mandatory, so the front matter carries only what a
-# scientific article carries. \twocolumn[...] sets the abstract full-width
-# across the top of the first body page and starts the two-column body
-# beneath it, rather than spending a page on each; no table of contents,
-# which articles do not have and which cost a further page.
-FRONTMATTER = '\\twocolumn[\\section*{Abstract}\n' + abstract_tex + '\n\\vspace{0.8em}\n]\n'
+# Abstract and contents each get their own page; the contents lists sections
+# and subsections. \twocolumn then starts the body on a fresh page.
+FRONTMATTER = ('\\onecolumn\n\\section*{Abstract}\n' + abstract_tex
+               + '\n\\newpage\n{\\small\\tableofcontents}\n\\twocolumn\n')
 
 master = PREAMBLE + TITLEPAGE + FRONTMATTER + body + '\n\\end{document}\n'
 (ROOT / 'Thesis.tex').write_text(master)
