@@ -116,7 +116,10 @@ PREAMBLE = r'''\documentclass[twocolumn,a4paper,10pt]{article}
 \setlength{\parindent}{1em}
 \usepackage{microtype}
 \usepackage[hidelinks]{hyperref}
-\hypersetup{colorlinks=true,linkcolor=black,citecolor=black,urlcolor=blue}
+\hypersetup{colorlinks=true,linkcolor=black,citecolor=black,urlcolor=blue,
+  pdftitle={''' + TITLE + r'''},
+  pdfauthor={Arijus Skaisgirys},
+  pdfsubject={Master Thesis, MSc in Omics Data Analysis, UVic-UCC}}
 % generous float settings for many spanning floats
 \extrafloats{80}
 \renewcommand{\topfraction}{0.92}
