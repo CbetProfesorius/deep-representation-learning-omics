@@ -106,6 +106,13 @@ pandoc supplementary.md -o Supplementary_Material.pdf --pdf-engine=xelatex
 
 Requires pandoc and a XeLaTeX installation.
 
+## Licence
+
+The thesis and supplementary documents (PDF and Markdown) are released under
+[CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/), the same terms as the
+copy deposited in the UVic-UCC institutional repository. The code is released under the
+MIT License. See [LICENSE](LICENSE) for both.
+
 ## References
 
 Zhang Y, Bhosle A, Bae S, et al. Discovery of bioactive microbial gene products in inflammatory bowel disease. *Nature* 606:754–760 (2022).

@@ -1,0 +1,50 @@
+Licensing of this repository
+============================
+
+Two licences apply, depending on the material.
+
+1. Thesis and supplementary documents
+-------------------------------------
+
+The written works — thesis.pdf, Supplementary_Material.pdf and their
+Markdown sources (thesis.md, supplementary.md) — are licensed under the
+Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International
+licence (CC BY-NC-SA 4.0), matching the terms under which the thesis is
+deposited in the UVic-UCC institutional repository (RIUVic).
+
+You may share and adapt these documents for non-commercial purposes,
+provided you credit the author and distribute derivatives under the same
+licence. Full licence text: https://creativecommons.org/licenses/by-nc-sa/4.0/
+
+2. Code
+-------
+
+All source code in this repository — the analysis notebooks and scripts under
+data/, and the build scripts in the repository root — is licensed under the
+MIT License:
+
+MIT License
+
+Copyright (c) 2026 Arijus Skaisgirys
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in
+all copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+THE SOFTWARE.
+
+Note that the raw benchmark data are not part of this repository and carry
+their own terms: the MetaWIBELE outputs and IBDMDB profiles accompany
+Zhang et al. (2022), and the PRISM datasets accompany Franzosa et al. (2019).
